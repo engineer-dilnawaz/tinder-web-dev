@@ -1,12 +1,13 @@
 import { Outlet } from "react-router";
 
-import { Navbar } from "../../components";
+import { Footer, Navbar } from "../../components";
 
 export const WrapperPage = () => {
   return (
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 };
