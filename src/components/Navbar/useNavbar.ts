@@ -10,11 +10,11 @@ export const useNavbar = () => {
   const handleProfileOptionClick = (option: HeaderOptionName) => {
     switch (option) {
       case "Profile": {
-        navigate("/");
+        navigate("/profile");
         break;
       }
       case "Settings": {
-        console.log("Settings");
+        navigate("/settings");
         break;
       }
       case "Logout": {
