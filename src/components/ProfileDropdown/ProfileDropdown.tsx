@@ -1,7 +1,12 @@
+import type { HeaderOptionName } from "../../constants";
 import { useProfileDropdown } from "./useProfileDropdown";
 
-export const ProfileDropdown = () => {
-  const { profileList, handleProfileOptionClick } = useProfileDropdown();
+type ProfileDropdownProps = {
+  onOptionClick: (option: HeaderOptionName) => void;
+};
+
+export const ProfileDropdown = ({ onOptionClick }: ProfileDropdownProps) => {
+  const { profileList } = useProfileDropdown();
   return (
     <ul
       tabIndex={-1}
@@ -11,7 +16,7 @@ export const ProfileDropdown = () => {
         <li key={profile.name}>
           <button
             className="justify-between"
-            onClick={() => handleProfileOptionClick(profile.name)}
+            onClick={() => onOptionClick(profile.name)}
           >
             {profile.name}
             {profile.isNew && <span className="badge">New</span>}

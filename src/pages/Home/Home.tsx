@@ -2,6 +2,7 @@ import { useAuthStore } from "../../store";
 
 export const Home = () => {
   const { user } = useAuthStore();
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-2xl font-bold">Welcome {user?.name}</h1>

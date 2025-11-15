@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { themeChange } from "theme-change";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { Home, Login, Profile, WrapperPage } from "./pages";
+import { Home, Login, Profile, Settings, WrapperPage } from "./pages";
 
 const App = () => {
   useEffect(() => {
@@ -26,6 +26,10 @@ const App = () => {
         {
           path: "/profile",
           element: <Profile />,
+        },
+        {
+          path: "/settings",
+          element: <Settings />,
         },
       ],
     },

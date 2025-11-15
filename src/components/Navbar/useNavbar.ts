@@ -1,6 +1,30 @@
-const avatar =
-  "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp";
+import { useNavigate } from "react-router";
+
+import { AVATAR_URL, type HeaderOptionName } from "../../constants";
+import { useAuthStore } from "../../store";
 
 export const useNavbar = () => {
-  return { avatar };
+  const { logout } = useAuthStore();
+  const navigate = useNavigate();
+
+  const handleProfileOptionClick = (option: HeaderOptionName) => {
+    switch (option) {
+      case "Profile": {
+        navigate("/");
+        break;
+      }
+      case "Settings": {
+        console.log("Settings");
+        break;
+      }
+      case "Logout": {
+        logout();
+        break;
+      }
+
+      default:
+        console.log("Coming Soon! This page is under development...");
+    }
+  };
+  return { avatar: AVATAR_URL, handleProfileOptionClick };
 };

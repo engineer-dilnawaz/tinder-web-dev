@@ -6,7 +6,7 @@ import { useNavbar } from "./useNavbar";
 import { ProfileDropdown } from "../ProfileDropdown";
 
 export const Navbar = () => {
-  const { avatar } = useNavbar();
+  const { avatar, handleProfileOptionClick } = useNavbar();
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <Logo />
@@ -14,7 +14,7 @@ export const Navbar = () => {
         <ThemeToggler />
         <div className="dropdown dropdown-end">
           <Avatar src={avatar} alt="Profile Avatar" />
-          <ProfileDropdown />
+          <ProfileDropdown onOptionClick={handleProfileOptionClick} />
         </div>
       </div>
     </div>
