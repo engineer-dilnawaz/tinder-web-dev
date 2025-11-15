@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { themeChange } from "theme-change";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { Home, Login, Profile, WrapperPage } from "./pages";
 
@@ -11,16 +12,16 @@ const App = () => {
 
   const routes = createBrowserRouter([
     {
+      path: "/login",
+      element: <Login />,
+    },
+    {
       path: "/",
       element: <WrapperPage />,
       children: [
         {
           index: true,
           element: <Home />,
-        },
-        {
-          path: "/login",
-          element: <Login />,
         },
         {
           path: "/profile",
@@ -30,7 +31,12 @@ const App = () => {
     },
   ]);
 
-  return <RouterProvider router={routes} />;
+  return (
+    <>
+      <RouterProvider router={routes} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </>
+  );
 };
 
 export default App;

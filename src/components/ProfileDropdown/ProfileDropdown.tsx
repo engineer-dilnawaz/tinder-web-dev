@@ -1,7 +1,7 @@
 import { useProfileDropdown } from "./useProfileDropdown";
 
 export const ProfileDropdown = () => {
-  const { profileList } = useProfileDropdown();
+  const { profileList, handleProfileOptionClick } = useProfileDropdown();
   return (
     <ul
       tabIndex={-1}
@@ -9,10 +9,13 @@ export const ProfileDropdown = () => {
     >
       {profileList.map((profile) => (
         <li key={profile.name}>
-          <a className="justify-between">
+          <button
+            className="justify-between"
+            onClick={() => handleProfileOptionClick(profile.name)}
+          >
             {profile.name}
             {profile.isNew && <span className="badge">New</span>}
-          </a>
+          </button>
         </li>
       ))}
     </ul>

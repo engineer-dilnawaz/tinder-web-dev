@@ -3,3 +3,5 @@ export * from "./Hash";
 export * from "./Twitter";
 export * from "./Youtube";
 export * from "./Facebook";
+export * from "./Envelope";
+export * from "./Key";
